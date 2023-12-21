@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+        border-radius: 5px;
+        text-transform: capitalize;
+        border-style:none ;
+        font-family: 'Times New Roman', Times, serif;
+        transition: 0.4s;
+        cursor: pointer;
+      }
+        .container{
+            width: 20%;
+            height: 45vh;
+            border: 1px solid #000;
+            margin: 0 auto;
+            margin-top: 180px;
+            background-color: rgb(200, 228, 255);
+            border-radius: 10px;
+        }
+        .upper{
+            width: inherit;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 15px;
+            /* border: 1px solid #000; */
+
+        }
+        #display{
+            width: 80%;
+            height: 5vh;
+            border-radius: 5px;
+            border-style: none;
+            font-size: 26px;
+            text-align: right;
+        }
+        #back{
+            width: 50px;
+            height: 30px;
+        }
+        #back:hover{
+            background-color: rgb(234, 81, 81);
+            color: white;
+        }
+        .row{
+            width: inherit;
+            height: 40px;
+            /* border: 1px solid #000; */
+            margin-top: 10px;
+        }
+        button{
+            width: 70px;
+            height: 38px;
+            font-size: 20px;
+
+        }
+        button:hover{
+            background-color: rgb(107, 154, 194);
+        }
+        #equal:hover{
+            background-color: rgb(72, 210, 72);
+            color: white;
+        }
+        #clear:hover{
+            background-color: crimson;
+            color:white;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <center>
+        <div class="upper">
+            <input type="text" name="" id="display" readonly >
+            <button onclick="back()" id="back">back</button>
+
+        </div>
+          <br />
+          <div class="row">
+            <button onclick="getvalue('7')">7</button>
+          <button onclick="getvalue('8')">8</button>
+          <button onclick="getvalue('9')">9</button>
+          <button onclick="getvalue('/')">/</button>
+          </div>
+          <br />
+          <div class="row">
+            <button onclick="getvalue('6')">6</button>
+          <button onclick="getvalue('5')">5</button>
+          <button onclick="getvalue('4')">4</button>
+          <button onclick="getvalue('*')">x</button>
+          </div>
+          <br />
+          <div class="row">
+            <button onclick="getvalue('1')">1</button>
+          <button onclick="getvalue('2')">2</button>
+          <button onclick="getvalue('3')">3</button>
+          <button onclick="getvalue('-')">-</button>
+          </div>
+          <br />
+          <div class="row">
+              <button onclick="clr()" id="clear">clear</button>
+              <button onclick="getvalue('0')">0</button>
+          <button onclick="getvalue('+')">+</button>
+          <button onclick="get()" id="equal">=</button>
+
+          </div>
+      </center>
+    </div>
+    <script>
+      function getvalue(x) {
+        let a = (document.getElementById("display").value += x);
+      }
+
+      function get() {
+        let result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+      }
+
+      function back() {
+        let e = document.getElementById("display").value;
+        let f = e.slice(0, e.length - 1);
+        document.getElementById("display").value = f;
+      }
+
+      function clr() {
+        let g = document.getElementById("display").value;
+        let h = g.replace(g, "");
+        document.getElementById("display").value = h;
+      }
+    </script>
+  </body>
+</html>
